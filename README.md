@@ -1,6 +1,8 @@
 # RayKaster
 A Call of Duty 4 tool used to rename maps, useful for server owners.
 
+![Preview](https://i.imgur.com/NbJZUfu.png)
+
 # Features
 - Written in C#
 - Portable
