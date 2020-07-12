@@ -46,6 +46,9 @@ namespace RayKaster
 
         private void Button1_Click(object sender, EventArgs e)
         {
+            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "")
+                return;
+
             button1.Enabled = false;
 
             byte[] bytes = File.ReadAllBytes(file).Skip(12).ToArray();
