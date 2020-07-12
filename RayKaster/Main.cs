@@ -55,7 +55,17 @@ namespace RayKaster
 
             String uncompressed = DecompressString(bytes);
 
-            File.WriteAllBytes(Path.GetDirectoryName(file) + "\\" + textBox3.Text + ".ff", Combine(Convert.FromBase64String(IW3_SIGNATURE), CompressString(uncompressed.Replace(textBox2.Text+".d3dbsp", textBox3.Text+".d3dbsp").Replace(textBox2.Text + ".gsc", textBox3.Text + ".gsc"))));
+            saveFileDialog1.FileName = textBox3.Text;
+
+            if (saveFileDialog1.ShowDialog() != DialogResult.OK)
+            {
+                button1.Enabled = true;
+                return;
+            }
+
+            file = saveFileDialog1.FileName;
+
+            File.WriteAllBytes(file, Combine(Convert.FromBase64String(IW3_SIGNATURE), CompressString(uncompressed.Replace(textBox2.Text+".d3dbsp", textBox3.Text+".d3dbsp").Replace(textBox2.Text + ".gsc", textBox3.Text + ".gsc"))));
 
             button1.Enabled = true;
         }
