@@ -7,12 +7,12 @@ using zlib;
 
 namespace RayKaster
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
         const String IW3_SIGNATURE = "SVdmZnUxMDAFAAAA";
         String file; 
 
-        public Form1()
+        public Main()
         {
             InitializeComponent();
         }
