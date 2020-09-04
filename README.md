@@ -3,6 +3,9 @@ A Call of Duty 4 tool used to rename maps, useful for server owners.
 
 ![Preview](https://i.imgur.com/NbJZUfu.png)
 
+# Download
+To download the pre-compiled exe you can grab the latest version in the [Releases Page](https://github.com/Rex109/RayKaster/releases)
+
 # Features
 - Written in C#
 - Portable
