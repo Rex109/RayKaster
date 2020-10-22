@@ -47,7 +47,16 @@ namespace RayKaster
         private void Button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "")
+            {
+                MessageBox.Show("Some textboxes are empty, please fill them up", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
+            }
+            else if (textBox2.Text.Length != textBox3.Text.Length)
+            {
+                MessageBox.Show("The new map name length should be the same as the old one", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+                
 
             button1.Enabled = false;
 
@@ -65,7 +74,16 @@ namespace RayKaster
 
             file = saveFileDialog1.FileName;
 
-            File.WriteAllBytes(file, Combine(Convert.FromBase64String(IW3_SIGNATURE), CompressString(uncompressed.Replace(textBox2.Text+".d3dbsp", textBox3.Text+".d3dbsp").Replace(textBox2.Text + ".gsc", textBox3.Text + ".gsc"))));
+            try
+            {
+                File.WriteAllBytes(file, Combine(Convert.FromBase64String(IW3_SIGNATURE), CompressString(uncompressed.Replace(textBox2.Text + ".d3dbsp", textBox3.Text + ".d3dbsp").Replace(textBox2.Text + ".gsc", textBox3.Text + ".gsc"))));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occured while writing a file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
 
             button1.Enabled = true;
         }
